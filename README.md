@@ -32,35 +32,91 @@
 
 ## 安装
 
-```powershell
-# 克隆后进入项目目录
-cd dnd_tool
+下面两种安装方式**任选一种**即可。不要同时执行两种方式。
 
-# 创建虚拟环境
-python -m venv .venv
+- 平时使用 Anaconda、Miniconda，或能在终端输入 `conda` 的用户：选择 **方式 A**。
+- 不使用 Conda、只安装了普通 Python 的用户：选择 **方式 B**。
 
-# Windows PowerShell：激活虚拟环境
-.\.venv\Scripts\Activate.ps1
+### 方式 A
 
-# 安装依赖
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-```
+1. 打开 **Anaconda Prompt**。如果你已在 PowerShell 中正常使用 `conda`，也可以打开 PowerShell。
+2. 用 `cd` 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
 
-macOS / Linux：
+   ```powershell
+   cd C:\你的文件夹\dnd_tool
+   ```
+
+3. 创建名为 `gm-copilot` 的独立运行环境。此步骤只需第一次安装时执行：
+
+   ```powershell
+   conda create -n gm-copilot python=3.11 -y
+   ```
+
+4. 进入刚刚创建的环境：
+
+   ```powershell
+   conda activate gm-copilot
+   ```
+
+5. 安装软件需要的组件。此步骤只需第一次安装时执行：
+
+   ```powershell
+   python -m pip install --upgrade pip
+   python -m pip install -r requirements.txt
+   ```
+
+看到安装完成且没有红色报错后，即可启动软件。
+
+### 方式 B
+
+1. 打开 PowerShell。
+2. 用 `cd` 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
+
+   ```powershell
+   cd C:\你的文件夹\dnd_tool
+   ```
+
+3. 创建软件专用环境：
+
+   ```powershell
+   python -m venv .venv
+   ```
+
+4. 安装软件需要的组件：
+
+   ```powershell
+   .\.venv\Scripts\python.exe -m pip install --upgrade pip
+   .\.venv\Scripts\python.exe -m pip install -r requirements.txt
+   ```
+
+如果提示找不到 `python` 命令，请先从 [Python 官网](https://www.python.org/downloads/) 安装 Python 3.10 或更高版本，安装时勾选“Add Python to PATH”。
+
+### macOS / Linux 用户
 
 ```bash
-cd dnd_tool
+cd /你的文件夹/dnd_tool
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-## 启动
+## 启动软件
+
+每次启动前，请打开与安装时相同的终端，然后按照对应方式执行。
+
+### 使用 Conda 安装时
 
 ```powershell
-cd dnd_tool
+conda activate gm-copilot
+cd C:\你的文件夹\dnd_tool
+python src\main.py
+```
+
+### 使用普通 Python 安装时
+
+```powershell
+cd C:\你的文件夹\dnd_tool
 .\.venv\Scripts\python.exe src\main.py
 ```
 
