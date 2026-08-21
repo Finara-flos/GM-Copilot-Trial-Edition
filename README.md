@@ -34,19 +34,19 @@
 
 下面两种安装方式**任选一种**即可。不要同时执行两种方式。
 
-- 平时使用 Anaconda、Miniconda，或能在终端输入 `conda` 的用户：选择 **方式 A**。
+- 平时使用 Anaconda、Miniconda的用户：选择 **方式 A**。
 - 不使用 Conda、只安装了普通 Python 的用户：选择 **方式 B**。
 
 ### 方式 A
 
-1. 打开 **Anaconda Prompt**。如果你已在 PowerShell 中正常使用 `conda`，也可以打开 PowerShell。
-2. 用 `cd` 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
+1. 打开 **Anaconda Prompt**。如果你已在 PowerShell 中正常使用 **conda**，也可以打开 PowerShell。
+2. 用 **cd** 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
 
    ```powershell
    cd C:\你的文件夹\dnd_tool
    ```
 
-3. 创建名为 `gm-copilot` 的独立运行环境。此步骤只需第一次安装时执行：
+3. 创建名为 **gm-copilot** 的独立运行环境。此步骤只需第一次安装时执行：
 
    ```powershell
    conda create -n gm-copilot python=3.11 -y
@@ -70,7 +70,7 @@
 ### 方式 B
 
 1. 打开 PowerShell。
-2. 用 `cd` 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
+2. 用 **cd** 命令进入下载后的项目文件夹。请将下面路径改成你自己的实际路径：
 
    ```powershell
    cd C:\你的文件夹\dnd_tool
@@ -89,7 +89,7 @@
    .\.venv\Scripts\python.exe -m pip install -r requirements.txt
    ```
 
-如果提示找不到 `python` 命令，请先从 [Python 官网](https://www.python.org/downloads/) 安装 Python 3.10 或更高版本，安装时勾选“Add Python to PATH”。
+如果提示找不到 **python** 命令，请先从 [Python 官网](https://www.python.org/downloads/) 安装 Python 3.10 或更高版本，安装时勾选“Add Python to PATH”。
 
 ### macOS / Linux 用户
 
@@ -210,7 +210,7 @@ API_STREAM_GUARD_OK
 NPC_EDIT_DARK_THEME_OK
 ```
 
-离屏 Qt 可能输出字体目录或窗口尺寸提示警告；只要上述 `*_OK` 标记出现，测试即通过。
+离屏 Qt 可能输出字体目录或窗口尺寸提示警告；只要上述 **_OK**标记出现，测试即通过。
 
 ## 项目结构
 
