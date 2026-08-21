@@ -17,6 +17,7 @@ from PySide6.QtWidgets import QApplication  # noqa: E402
 
 from src.modules.account_manager import AccountManager  # noqa: E402
 from src.pages.account_dialog import AccountDialog  # noqa: E402
+from src.widgets.markdown_view import set_active_scheme  # noqa: E402
 from src.window import MainWindow  # noqa: E402
 
 # UI 字体候选（按优先级降序）
@@ -39,12 +40,27 @@ def _apply_fonts(app: QApplication) -> None:
         app.setFont(QFont(ui, 10))
 
 
+def _load_initial_theme(app: QApplication) -> None:
+    """启动时加载暗色 QSS，让登录对话框就拥有与主窗口一致的样式。
+
+    登录成功后 MainWindow._apply_theme 会根据用户偏好重新加载，覆盖此处。
+    """
+    qss_path = PROJECT_ROOT / "src" / "theme" / "dark.qss"
+    try:
+        qss = qss_path.read_text(encoding="utf-8")
+    except OSError:
+        qss = ""
+    app.setStyleSheet(qss)
+    set_active_scheme("dark")
+
+
 def main() -> int:
     """启动 GM Copilot 应用。"""
     app = QApplication(sys.argv)
     app.setApplicationName("GM Copilot")
     app.setOrganizationName("GM Copilot")
     _apply_fonts(app)
+    _load_initial_theme(app)
     account = AccountManager()
     dialog = AccountDialog(account)
     if dialog.exec() != AccountDialog.Accepted:
